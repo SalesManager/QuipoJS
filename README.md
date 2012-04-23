@@ -8,6 +8,6 @@ Released under the [MIT License](https://github.com/Cedriking/QuipoJS/blob/maste
 ##Getting Started
 Download the [minified library](https://github.com/Cedriking/QuipoJS/blob/master/Quipo.min.js) and include it in your html.
 ```html
-<script src="quipo.min.js"></script>
+<script src="Quipo.min.js"></script>
 ```
 After that you are ready to use QuipoJS.
