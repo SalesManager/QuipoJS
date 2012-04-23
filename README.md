@@ -3,11 +3,11 @@ QuipoJS is a minimalist, modular and object-oriented Javascript library with a g
 
 QuipoJS simplifies the way you work and executes fast. It is great for mobile web development and comes with all mobile event handlers like tap, double tap, touch, swipe, etc.
 
-Released under the MIT License (https://github.com/Cedriking/QuipoJS/blob/master/MIT_LICENSE).
+Released under the [MIT License](https://github.com/Cedriking/QuipoJS/blob/master/MIT_LICENSE).
 
 ##Getting Started
 Download the [minified library](https://github.com/Cedriking/QuipoJS/blob/master/Quipo.min.js) and include it in your html.
 ```html
-<script src="js/quipo.min.js"></script>
+<script src="quipo.min.js"></script>
 ```
 After that you are ready to use QuipoJS.
