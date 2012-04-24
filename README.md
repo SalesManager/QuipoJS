@@ -10,4 +10,4 @@ Download the [minified library](https://github.com/Cedriking/QuipoJS/blob/master
 ```html
 <script src="Quipo.min.js"></script>
 ```
-And you are ready to go, visit [QuipoJS website](https://quipojs.quipoapps.com) for more documentation and API reference.
+And you are ready to go, visit [QuipoJS website](http://quipojs.quipoapps.com) for more documentation and API reference.
