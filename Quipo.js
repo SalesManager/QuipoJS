@@ -1,4 +1,4 @@
-//	QuipoJS 1.0 ~ Copyright (c) 2012 StudioQuipo.
+//	QuipoJS 1.0.1 ~ Copyright (c) 2012 Cedrik Boudreau.
 //	http://www.studioquipo.com
 //	QuipoJS may be freely distributed under the MIT license.
 
@@ -39,7 +39,7 @@ var Qjs = (function() {
 		}
 	};
 
-	$.extend = function(target) {
+	$.extend = function(target, source) {
 		Array.prototype.slice.call(arguments, 1).forEach(function(source) {
 			for (key in source) target[key] = source[key];
 		});
