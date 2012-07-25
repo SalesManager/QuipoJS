@@ -30,13 +30,8 @@ var Qjs = (function() {
 		return dom;
 	};
 
-	function $(selector) {
-		if (!selector) {
-			return Q();
-		} else {
-			var domain_selector = $.getDomainSelector(selector);
-			return Q(domain_selector, selector);
-		}
+	function $(selector, context) {
+		return selector ? Q($.getDomainSelector(selector, context), selector) : Q();
 	};
 
 	$.extend = function(target, source) {
@@ -80,7 +75,7 @@ var Qjs = (function() {
 		return OBJ_PROTO.hasOwnProperty.call(object, property);
 	};
 
-	$.getDomainSelector = function(selector) {
+	$.getDomainSelector = function(selector, context) {
 		var domain = null;
 		var elementTypes = [1, 9, 11];
 
@@ -88,7 +83,7 @@ var Qjs = (function() {
 		if (type === 'array') {
 			domain = _compact(selector);
 		} else if (type === 'string') {
-			domain = $.query(document, selector);
+			domain = $.query(context || document, selector);
 		} else if (elementTypes.indexOf(selector.nodeType) >= 0 || selector === window) {
 			domain = [selector];
 			selector = null;
@@ -132,11 +127,18 @@ var Qjs = (function() {
 		return (navigator.onLine);
 	};
 
-	$.query = function(domain, selector) {
-		var dom_elements = document.querySelectorAll(selector);
-		dom_elements = Array.prototype.slice.call(dom_elements);
+	$.query = function(context, selector) {
+		if ($.toType(context) === 'array') {
+			var result = [];
 
-		return dom_elements;
+			for (var i = 0, il = context.length; i < il; i++) {
+				result = result.concat(Array.prototype.slice.call(context[i].querySelectorAll(selector)));
+			}
+
+			return result;
+		}
+
+		return Array.prototype.slice.call(context.querySelectorAll(selector));
 	};
 
 	$.ajaxSettings = {
