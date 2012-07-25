@@ -4,16 +4,16 @@
 
 var Qjs = (function() {
 	var OBJ_PROTO = Object.prototype, EMPTY_ARRAY = [], PARENT_NODE = 'parentNode', slice = EMPTY_ARRAY.slice,
-	DEFAULT = { TYPE: 'GET',  MIME: 'json' },
-	MIME_TYPES = { script: 'text/javascript, application/javascript', json: 'application/json', xml: 'application/xml, text/xml', html: 'text/html', text: 'text/plain' }, 
+	DEFAULT = { TYPE: 'GET', MIME: 'json' },
+	MIME_TYPES = { script: 'text/javascript, application/javascript', json: 'application/json', xml: 'application/xml, text/xml', html: 'text/html', text: 'text/plain' },
 	JSONP_ID = 0,
 	SHORTCUTS = [ 'touch', 'tap' ],
 	SHORTCUTS_EVENTS = { touch: 'touchstart', tap: 'tap' },
 	READY_EXPRESSION = /complete|loaded|interactive/,
 	ELEMENT_ID = 1,
 	HANDLERS = {},
-	EVENT_METHODS = { preventDefault: 'isDefaultPrevented', stopImmediatePropagation: 'isImmediatePropagationStopped', stopPropagation: 'isPropagationStopped' }, 
-	EVENTS_DESKTOP = { touchstart : 'mousedown', touchmove: 'mousemove', touchend: 'mouseup', tap: 'click', doubletap: 'dblclick', orientationchange: 'resize' }, 
+	EVENT_METHODS = { preventDefault: 'isDefaultPrevented', stopImmediatePropagation: 'isImmediatePropagationStopped', stopPropagation: 'isPropagationStopped' },
+	EVENTS_DESKTOP = { touchstart : 'mousedown', touchmove: 'mousemove', touchend: 'mouseup', tap: 'click', doubletap: 'dblclick', orientationchange: 'resize' },
 	TOUCH = {},
 	TOUCH_TIMEOUT,
 	LONGTAP_DELAY = 750,
@@ -54,7 +54,7 @@ var Qjs = (function() {
 		return elements;
 	};
 
-	 $.mix = function() {
+	$.mix = function() {
 		var child = {};
 		for (var arg = 0, len = arguments.length; arg < len; arg++) {
 			var argument = arguments[arg];
@@ -291,12 +291,12 @@ var Qjs = (function() {
 				return this.each(function() {
 					this.setAttribute(name, value);
 				});
-		  	}
+			}
 		},
 		removeAttr: function(name) {
-		  return this.each(function() {
-		  	if(this.nodeType === 1) this.removeAttribute(name);
-		  });
+			return this.each(function() {
+				if(this.nodeType === 1) this.removeAttribute(name);
+			});
 		},
 		data: function(name, value) {
 			return this.attr('data-' + name, value);
@@ -311,10 +311,10 @@ var Qjs = (function() {
 			}
 		},
 		show: function() {
-			return this.style("display", "block")
+			return this.style('display', 'block')
 		},
 		hide: function() {
-			return this.style("display", "none")
+			return this.style('display', 'none')
 		},
 		height: function() {
 			var offset = this.offset();
@@ -552,13 +552,13 @@ var Qjs = (function() {
 	};
 
 	function _compact(array) {
-	  return array.filter(function(item) {
-		  return item !== undefined && item !== null;
-	  });
+		return array.filter(function(item) {
+			return item !== undefined && item !== null;
+		});
 	}
 
 	function _flatten(array) {
-	  return array.length > 0 ? [].concat.apply([], array) : array
+		return array.length > 0 ? [].concat.apply([], array) : array
 	}
 
 	function _detectEnvironment() {
@@ -753,8 +753,8 @@ var Qjs = (function() {
 	function _findHandlers(element_id, event, fn, selector) {
 		return (HANDLERS[element_id] || []).filter(function(handler) {
 			return handler
-			&& (!event  || handler.event == event)
-			&& (!fn       || handler.fn == fn)
+			&& (!event || handler.event == event)
+			&& (!fn || handler.fn == fn)
 			&& (!selector || handler.selector == selector);
 		});
 	}
@@ -818,7 +818,7 @@ var Qjs = (function() {
 			TOUCH.el.trigger('doubleTap');
 			TOUCH = {};
 		} else if (TOUCH.x2 > 0 || TOUCH.y2 > 0) {
-			(Math.abs(TOUCH.x1 - TOUCH.x2) > 30 || Math.abs(TOUCH.y1 - TOUCH.y2) > 30)  &&
+			(Math.abs(TOUCH.x1 - TOUCH.x2) > 30 || Math.abs(TOUCH.y1 - TOUCH.y2) > 30) &&
 			TOUCH.el.trigger('swipe') &&
 			TOUCH.el.trigger('swipe' + (_swipeDirection(TOUCH.x1, TOUCH.x2, TOUCH.y1, TOUCH.y2)));
 
