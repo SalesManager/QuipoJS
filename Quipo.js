@@ -1,4 +1,4 @@
-//	QuipoJS 1.0.1 ~ Copyright (c) 2012 Cedrik Boudreau.
+//	QuipoJS 1.1 ~ Copyright (c) 2012 Cedrik Boudreau.
 //	http://www.studioquipo.com
 //	QuipoJS may be freely distributed under the MIT license.
 
