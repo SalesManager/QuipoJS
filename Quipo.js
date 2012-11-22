@@ -361,7 +361,7 @@ var Qjs = (function() {
 			return this.each(function() {
 				if ($.toType(value) === 'string') {
 					if (value) {
-						var div = document.createElement();
+						var div = document.createElement('div');
 						div.innerHTML = value;
 						this.appendChild(div.firstChild);
 					}
